@@ -10,6 +10,10 @@ Purpose
 * Hide data details to high level programming
 * high level property support based on data
 
+Require
+-------
+* ORM's __getitem__ and __setitem__ support
+* ORM's cls.save() support
 
 Example
 --------
