@@ -101,7 +101,12 @@ class DataBox(object):
 
     def set_propertys(self, **keyvals):
         for ek, ev in keyvals.items():
-            getattr(self.__class__, ek).setter(self, ev)
+            tmp = getattr(self.__class__, ek)
+            if tmp.setter:
+                tmp(self, ev)
+            else:
+                raise AttributeError, "can't set attribute: Unwriteable: %s" \
+                                        % ek
         self.data.save()
 
     def save(self):
