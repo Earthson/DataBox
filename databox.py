@@ -1,5 +1,6 @@
 class db_property(object):
-    '''an property of class that have data(instance of DataBase)
+    '''an property wrapper to data(instance of DataBase)
+    for auto save support
     class.data.save()  required'''
     def __init__(self, attrfunc):
         tmp = attrfunc()
