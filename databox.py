@@ -102,3 +102,7 @@ class DataBox(object):
         for ek, ev in keyvals.items():
             getattr(self.__class__, ek).setter(self, ev)
         self.data.save()
+
+    def save(self):
+        '''if you change a list by append, you must call save yourself'''
+        self.data.save()
