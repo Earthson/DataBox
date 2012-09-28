@@ -23,12 +23,12 @@ class db_property(object):
 
     def __set__(self, obj, value):
         if self.setter is None:
-            raise AttributeError, "can't set attribute: Unwriteable"
+            raise AttributeError, "can't set attribute: Unwritable"
         self.setter(obj, value)
         obj.data.save()
 
     @classmethod
-    def get_mapper_attr(cls, name, writeable=True):
+    def get_mapper_attr(cls, name, writable=True):
         '''for basic mapper use db_propertys'''
         def attrfunc_r():
             def getter(self):
@@ -41,7 +41,7 @@ class db_property(object):
                 self.data[name] = value
             return getter, setter
 
-        return cls(attrfunc_rw) if writeable else cls(attrfunc_r)
+        return cls(attrfunc_rw) if writable else cls(attrfunc_r)
 
 
 class class_property(property):
@@ -105,7 +105,7 @@ class DataBox(object):
             if tmp.setter:
                 tmp(self, ev)
             else:
-                raise AttributeError, "can't set attribute: Unwriteable: %s" \
+                raise AttributeError, "can't set attribute: Unwritable: %s" \
                                         % ek
         self.data.save()
 

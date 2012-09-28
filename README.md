@@ -52,7 +52,7 @@ class BlogPost(DataBox):
     
     #mapper to basic data
     mapper = {
-        #name:writeable
+        #name:writable
         '_id':True,
         'title':True,
         'body':True,
@@ -88,7 +88,7 @@ b.avg_rank = 324
 
 #then errors come
     ...
-    raise AttributeError, "can't set attribute: Unwriteable"
-AttributeError: can't set attribute: Unwriteable
+    raise AttributeError, "can't set attribute: Unwritable"
+AttributeError: can't set attribute: Unwritable
 
 ```
