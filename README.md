@@ -69,11 +69,12 @@ class BlogPost(DataBox):
 a = BlogPost()
 a.set_propertys(title='fdasfas', author='earthson')
 a.title = 'hello world!'
+a.tags = ['Programming']
+print a
 a.ranks.append(53)
 a.ranks.append(35)
 a.ranks.append(32)
-a.tags = ['Programming']
-print a
+a.save() #manully save, append will not auto call save operation
 b = BlogPost(BlogPost.datatype.find_one({'_id':a._id}))
 print b
 print '##', b.avg_rank
