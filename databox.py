@@ -103,7 +103,7 @@ class DataBox(object):
         for ek, ev in keyvals.items():
             tmp = getattr(self.__class__, ek)
             if tmp.setter:
-                tmp(self, ev)
+                tmp.setter(self, ev)
             else:
                 raise AttributeError, "can't set attribute: Unwritable: %s" \
                                         % ek
