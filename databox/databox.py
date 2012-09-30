@@ -69,9 +69,11 @@ class DataBox(object):
     def __init__(self, data=None, attrs=None, *args, **kwargs):
         if data is None:
             data = self.datatype(*args, **kwargs)
+            if attrs is None:
+                data.save()
         self.data = data
         if attrs:
-            self.set_propertys(attrs)
+            self.set_propertys(**attrs)
 
     def __str__(self):
         return str(self.data)
